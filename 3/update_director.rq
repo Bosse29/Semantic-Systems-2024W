@@ -1,0 +1,12 @@
+PREFIX : <http://semantics.id/ns/example/film#>
+
+DELETE {
+  ?director :fullName "George Lucas" .
+}
+INSERT {
+  ?director :fullName "BosseBehrens_12347333" .
+}
+WHERE {
+  ?director a :Director ;
+            :fullName "George Lucas" .
+}

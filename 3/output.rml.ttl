@@ -1,0 +1,374 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix map: <http://mapping.example.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ex: <http://semantics.id/ns/example#> .
+@prefix film: <http://semantics.id/ns/example/film#> .
+
+map:map_actorMappingFromCast_000 rml:logicalSource map:source_003 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "actorMappingFromCast" ;
+	rr:predicateObjectMap map:pom_005, map:pom_006, map:pom_007 ;
+	rr:subjectMap map:s_003 .
+
+map:map_castMapping_000 rml:logicalSource map:source_001 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "castMapping" ;
+	rr:predicateObjectMap map:pom_001, map:pom_002, map:pom_003 ;
+	rr:subjectMap map:s_001 .
+
+map:map_directorMapping_000 rml:logicalSource map:source_004 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "directorMapping" ;
+	rr:predicateObjectMap map:pom_008, map:pom_009, map:pom_010 ;
+	rr:subjectMap map:s_004 .
+
+map:map_editorMapping_000 rml:logicalSource map:source_008 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "editorMapping" ;
+	rr:predicateObjectMap map:pom_016, map:pom_017, map:pom_018 ;
+	rr:subjectMap map:s_008 .
+
+map:map_filmHasCastMapping_000 rml:logicalSource map:source_002 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "filmHasCastMapping" ;
+	rr:predicateObjectMap map:pom_004 ;
+	rr:subjectMap map:s_002 .
+
+map:map_filmHasDirectorMapping_000 rml:logicalSource map:source_005 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "filmHasDirectorMapping" ;
+	rr:predicateObjectMap map:pom_011 ;
+	rr:subjectMap map:s_005 .
+
+map:map_filmHasEditorMapping_000 rml:logicalSource map:source_009 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "filmHasEditorMapping" ;
+	rr:predicateObjectMap map:pom_019 ;
+	rr:subjectMap map:s_009 .
+
+map:map_filmHasScriptWriterMapping_000 rml:logicalSource map:source_007 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "filmHasScriptWriterMapping" ;
+	rr:predicateObjectMap map:pom_015 ;
+	rr:subjectMap map:s_007 .
+
+map:map_filmMapping_000 rml:logicalSource map:source_000 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "filmMapping" ;
+	rr:predicateObjectMap map:pom_000 ;
+	rr:subjectMap map:s_000 .
+
+map:map_scriptWriterMapping_000 rml:logicalSource map:source_006 ;
+	rdf:type rr:TriplesMap ;
+	rdfs:label "scriptWriterMapping" ;
+	rr:predicateObjectMap map:pom_012, map:pom_013, map:pom_014 ;
+	rr:subjectMap map:s_006 .
+
+map:om_000 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#Film" ;
+	rr:termType rr:Literal .
+
+map:om_001 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#Cast" ;
+	rr:termType rr:Literal .
+
+map:om_002 rdf:type rr:ObjectMap ;
+	rr:template "http://semantics.id/ns/example#actor_{id}" ;
+	rr:termType rr:IRI .
+
+map:om_003 rml:reference "character" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_004 rdf:type rr:ObjectMap ;
+	rr:template "http://semantics.id/ns/example#cast_{credit_id}" ;
+	rr:termType rr:IRI .
+
+map:om_005 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#Actor" ;
+	rr:termType rr:Literal .
+
+map:om_006 rml:reference "name" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_007 rml:reference "gender" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_008 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#Director" ;
+	rr:termType rr:Literal .
+
+map:om_009 rml:reference "name" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_010 rml:reference "gender" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_011 rdf:type rr:ObjectMap ;
+	rr:template "http://semantics.id/ns/example#director_{id}" ;
+	rr:termType rr:IRI .
+
+map:om_012 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#ScriptWriter" ;
+	rr:termType rr:Literal .
+
+map:om_013 rml:reference "name" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_014 rml:reference "gender" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_015 rdf:type rr:ObjectMap ;
+	rr:template "http://semantics.id/ns/example#scriptwriter_{id}" ;
+	rr:termType rr:IRI .
+
+map:om_016 rdf:type rr:ObjectMap ;
+	rr:constant "http://semantics.id/ns/example/film#Editor" ;
+	rr:termType rr:Literal .
+
+map:om_017 rml:reference "name" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_018 rml:reference "gender" ;
+	rdf:type rr:ObjectMap ;
+	rr:termType rr:Literal .
+
+map:om_019 rdf:type rr:ObjectMap ;
+	rr:template "http://semantics.id/ns/example#editor_{id}" ;
+	rr:termType rr:IRI .
+
+map:pm_000 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_001 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_002 rdf:type rr:PredicateMap ;
+	rr:constant film:hasCastActor .
+
+map:pm_003 rdf:type rr:PredicateMap ;
+	rr:constant film:hasCastCharacter .
+
+map:pm_004 rdf:type rr:PredicateMap ;
+	rr:constant film:hasCast .
+
+map:pm_005 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_006 rdf:type rr:PredicateMap ;
+	rr:constant film:fullName .
+
+map:pm_007 rdf:type rr:PredicateMap ;
+	rr:constant film:gender .
+
+map:pm_008 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_009 rdf:type rr:PredicateMap ;
+	rr:constant film:fullName .
+
+map:pm_010 rdf:type rr:PredicateMap ;
+	rr:constant film:gender .
+
+map:pm_011 rdf:type rr:PredicateMap ;
+	rr:constant film:hasDirector .
+
+map:pm_012 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_013 rdf:type rr:PredicateMap ;
+	rr:constant film:fullName .
+
+map:pm_014 rdf:type rr:PredicateMap ;
+	rr:constant film:gender .
+
+map:pm_015 rdf:type rr:PredicateMap ;
+	rr:constant film:hasScriptWriter .
+
+map:pm_016 rdf:type rr:PredicateMap ;
+	rr:constant rdf:type .
+
+map:pm_017 rdf:type rr:PredicateMap ;
+	rr:constant film:fullName .
+
+map:pm_018 rdf:type rr:PredicateMap ;
+	rr:constant film:gender .
+
+map:pm_019 rdf:type rr:PredicateMap ;
+	rr:constant film:hasEditor .
+
+map:pom_000 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_000 ;
+	rr:predicateMap map:pm_000 .
+
+map:pom_001 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_001 ;
+	rr:predicateMap map:pm_001 .
+
+map:pom_002 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_002 ;
+	rr:predicateMap map:pm_002 .
+
+map:pom_003 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_003 ;
+	rr:predicateMap map:pm_003 .
+
+map:pom_004 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_004 ;
+	rr:predicateMap map:pm_004 .
+
+map:pom_005 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_005 ;
+	rr:predicateMap map:pm_005 .
+
+map:pom_006 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_006 ;
+	rr:predicateMap map:pm_006 .
+
+map:pom_007 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_007 ;
+	rr:predicateMap map:pm_007 .
+
+map:pom_008 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_008 ;
+	rr:predicateMap map:pm_008 .
+
+map:pom_009 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_009 ;
+	rr:predicateMap map:pm_009 .
+
+map:pom_010 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_010 ;
+	rr:predicateMap map:pm_010 .
+
+map:pom_011 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_011 ;
+	rr:predicateMap map:pm_011 .
+
+map:pom_012 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_012 ;
+	rr:predicateMap map:pm_012 .
+
+map:pom_013 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_013 ;
+	rr:predicateMap map:pm_013 .
+
+map:pom_014 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_014 ;
+	rr:predicateMap map:pm_014 .
+
+map:pom_015 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_015 ;
+	rr:predicateMap map:pm_015 .
+
+map:pom_016 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_016 ;
+	rr:predicateMap map:pm_016 .
+
+map:pom_017 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_017 ;
+	rr:predicateMap map:pm_017 .
+
+map:pom_018 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_018 ;
+	rr:predicateMap map:pm_018 .
+
+map:pom_019 rdf:type rr:PredicateObjectMap ;
+	rr:objectMap map:om_019 ;
+	rr:predicateMap map:pm_019 .
+
+map:rules_000 <http://rdfs.org/ns/void#exampleResource> map:map_actorMappingFromCast_000, map:map_castMapping_000, map:map_directorMapping_000, map:map_editorMapping_000, map:map_filmHasCastMapping_000, map:map_filmHasDirectorMapping_000, map:map_filmHasEditorMapping_000, map:map_filmHasScriptWriterMapping_000, map:map_filmMapping_000, map:map_scriptWriterMapping_000 ;
+	rdf:type <http://rdfs.org/ns/void#Dataset> .
+
+map:s_000 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#film_{id~iri}" .
+
+map:s_001 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#cast_{credit_id~iri}" .
+
+map:s_002 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#film_{../id~iri}" .
+
+map:s_003 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#actor_{id~iri}" .
+
+map:s_004 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#director_{id~iri}" .
+
+map:s_005 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#film_{../id~iri}" .
+
+map:s_006 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#scriptwriter_{id~iri}" .
+
+map:s_007 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#film_{../id~iri}" .
+
+map:s_008 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#editor_{id~iri}" .
+
+map:s_009 rdf:type rr:SubjectMap ;
+	rr:template "http://semantics.id/ns/example#film_{../id~iri}" .
+
+map:source_000 rml:iterator "$[*]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_001 rml:iterator "$[*].cast[*]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_002 rml:iterator "$[*].cast[*]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_003 rml:iterator "$[*].cast[*]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_004 rml:iterator "$[*].crew[?(@.department=='Directing' && @.job=='Director')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_005 rml:iterator "$[*].crew[?(@.department=='Directing' && @.job=='Director')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_006 rml:iterator "$[*].crew[?(@.department=='Writing' && @.job=='Screenplay')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_007 rml:iterator "$[*].crew[?(@.department=='Writing' && @.job=='Screenplay')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_008 rml:iterator "$[*].crew[?(@.job=='Editor')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
+map:source_009 rml:iterator "$[*].crew[?(@.job=='Editor')]" ;
+	rml:referenceFormulation ql:JSONPath ;
+	rml:source "1000_credits.json" ;
+	rdf:type rml:LogicalSource .
+
