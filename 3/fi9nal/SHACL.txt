@@ -1,0 +1,124 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix film: <http://semantics.id/ns/example/film#> .
+@prefix ex: <http://semantics.id/ns/example#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+### film
+
+ex:FilmShape a sh:NodeShape ;
+    sh:targetClass film:Film ;
+    sh:property [
+        sh:path film:fullName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:filmID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:hasActor ;
+        sh:class film:Actor ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:hasDirector ;
+        sh:class film:Director ;
+        sh:minCount 1 ;
+    ] .
+
+### actor
+
+ex:ActorShape a sh:NodeShape ;
+    sh:targetClass film:Actor ;
+    sh:property [
+        sh:path film:fullName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:gender ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[012]$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:castCharacter ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+### director
+
+ex:DirectorShape a sh:NodeShape ;
+    sh:targetClass film:Director ;
+    sh:property [
+        sh:path film:fullName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:gender ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[012]$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:filmID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+### scriptwriter
+
+ex:ScriptWriterShape a sh:NodeShape ;
+    sh:targetClass film:ScriptWriter ;
+    sh:property [
+        sh:path film:fullName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:gender ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[012]$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:filmID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+### editor
+
+ex:EditorShape a sh:NodeShape ;
+    sh:targetClass film:Editor ;
+    sh:property [
+        sh:path film:fullName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:gender ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[012]$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path film:filmID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .

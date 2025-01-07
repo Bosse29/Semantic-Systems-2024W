@@ -1,0 +1,41 @@
+prefixes:
+  ex: "http://semantics.id/ns/example#"
+  film: "http://semantics.id/ns/example/film#"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+
+# Mapping for movies metadata (1000_movies_metadata.json)
+mappings:
+  films:
+    sources:
+      - ['1000_movies_metadata.json~jsonpath', '$[*]']
+    s: ex:film_$(id)
+    po:
+      - [a, film:Film]
+      - [film:id, $(id)]  # Added this line for film ID
+      - [film:originalTitle, $(original_title)]
+      - p: film:hasSpokenLanguage
+        o: $(spoken_languages[*].name)
+      - p: film:hasProductionCountry
+        o: $(production_countries[*].name)
+      - [film:hasFilmStudio, 'ex:studio_$(production_companies[*].id)~iri']
+      - [film:hasGenre, 'ex:genre_$(genres[*].id)~iri']
+
+  genres:
+    sources:
+      - ['1000_movies_metadata.json~jsonpath', '$[*].genres[*]']
+    s: ex:genre_$(id)
+    po:
+      - [a, film:Genre]
+      - [film:id, $(id), xsd:integer]
+      - [rdfs:label, $(name)]
+
+  studios:
+    sources:
+      - ['1000_movies_metadata.json~jsonpath', '$[*].production_companies[*]']
+    s: ex:studio_$(id)
+    po:
+      - [a, film:FilmStudio]
+      - [film:id, $(id), xsd:integer]
+      - [rdfs:label, $(name)]
