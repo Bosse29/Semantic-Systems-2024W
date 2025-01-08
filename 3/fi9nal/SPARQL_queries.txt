@@ -1,0 +1,84 @@
+### Name insert
+
+
+PREFIX film: <http://semantics.id/ns/example/film#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+DELETE {
+  <http://semantics.id/ns/example#director_488> film:fullName "Steven Spielberg" .
+}
+INSERT {
+  <http://semantics.id/ns/example#director_488> film:fullName "YourFullName_1234567" .
+}
+WHERE {
+  <http://semantics.id/ns/example#director_488> film:fullName "Steven Spielberg" .
+}
+
+
+### insert number of actors proeprty
+
+
+PREFIX film: <http://semantics.id/ns/example/film#>
+PREFIX ex: <http://semantics.id/ns/example#>
+
+INSERT {
+  ?film film:numberOfActors ?actorCount .
+}
+WHERE {
+  SELECT ?film (COUNT(?actor) AS ?actorCount)
+  WHERE {
+    ?film a film:Film ;
+          film:hasActor ?actor .
+  }
+  GROUP BY ?film
+}
+
+### cast summary 
+
+PREFIX film: <http://semantics.id/ns/example/film#>
+
+INSERT {
+  ?film film:castSummary ?castSummary .
+}
+WHERE {
+  {
+    SELECT ?film (GROUP_CONCAT(?actorName; separator=", ") AS ?castSummary)
+    WHERE {
+      ?film film:hasActor ?actor .
+      ?actor film:fullName ?actorName .
+    }
+    GROUP BY ?film
+  }
+}
+
+
+
+### female to male cast Ratio
+
+
+PREFIX film: <http://semantics.id/ns/example/film#>
+
+INSERT {
+  ?film film:femaleToMaleRatio ?femaleToMaleRatio .
+}
+WHERE {
+  {
+    SELECT ?film 
+           (COUNT(?maleActor) AS ?maleCount) 
+           (COUNT(?femaleActor) AS ?femaleCount)
+           (COUNT(?femaleActor) / COUNT(?maleActor) AS ?femaleToMaleRatio)
+    WHERE {
+      ?film film:hasActor ?actor .
+      OPTIONAL {
+        ?actor film:gender "2" .  # Male actors
+        BIND(?actor AS ?maleActor)
+      }
+      OPTIONAL {
+        ?actor film:gender "1" .  # Female actors
+        BIND(?actor AS ?femaleActor)
+      }
+    }
+    GROUP BY ?film
+    HAVING (?maleCount > 0)  # Ensure no division by zero
+  }
+}
